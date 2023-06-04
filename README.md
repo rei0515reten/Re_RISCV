@@ -1,17 +1,19 @@
 # Re_RISCV
 RISC-V based cpu processor
 
-## コンパイル
+## IcarusVerilogシミュレーション
+### コンパイル(systemVerilog)
 ```
- iverilog <module file>.v <testbench>.v
+ iverilog -g 2012 <module file>.v <testbench>.v
 ```
+オプション：https://tanakatarou.tech/627/
 
-## シミュレーション
+### シミュレーション
 ```
 vvp a.out
 ```
 
-## シミュレーション（波形）
+### シミュレーション（波形）
 ```
 gtkwave <シミュレーション時に出力されるファイル>.vcd
 ```
