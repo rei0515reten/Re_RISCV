@@ -5,7 +5,7 @@ module counter_test();
     logic [31:0] out;
 
     counter dut1(Clk,reset,q);
-    imem dut2(Q,out);
+    //imem dut2(Q,out);
 
     //クロック生成
     always #5 Clk = ~Clk;
