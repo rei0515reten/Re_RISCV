@@ -1,5 +1,5 @@
 # Re_RISCV
-RISC-V based cpu processor
+RISC-V based cpu processor(PipelineProcessor)
 
 ## IcarusVerilogシミュレーション
 ### コンパイル(systemVerilog)
