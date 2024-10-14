@@ -12,8 +12,7 @@ module controller(input logic [6:0] op,
 	logic [1:0] ALUOp;
 	logic Branch;
 
-	//Instantiate Maindec
-	//maindec md(op, ResultSrc, MemWrite, Branch, ALUSrc, RegWrite, Jump, ImmSrc,ALUOp);
+	//Instantiate maindec md(op, ResultSrc, MemWrite, Branch, ALUSrc, RegWrite, Jump, ImmSrc,ALUOp);
 
 	//Instatiate aludec
 
