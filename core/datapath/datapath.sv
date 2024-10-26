@@ -5,6 +5,7 @@ module datapath(input logic clk, reset,
 		input logic [1:0] ImmSrc,
 		input logic [31:0] Instr,
 		input logic [31:0] ReadData,
+		input logic [2:0] ALUControl,
 		output logic Zero,
 		output logic [31:0] PC,
 		output logic [31:0] ALUResult, WriteData);
@@ -22,10 +23,10 @@ module datapath(input logic clk, reset,
 
 	// register file logic
 	regfile rf(clk, RegWrite, Instr[19:15], Instr[24:20], Instr[11:7], Result, SrcA, WriteData);
-	//Instantiate extend  ext(Instr[31:7], ImmSrc, ImmExt);
+	extend  ext(Instr[31:7], ImmSrc, ImmExt);
 
 	// ALU logic
 	mux2 #(32) srcbmux(WriteData, ImmExt, ALUSrc, SrcB);
-	//Instantiate alu
-	//Instantiate mux3
+	alu        alu(SrcA, SrcB, ALUControl, ALUResult, Zero);
+	mux3 #(32) resultmux(ALUResult, ReadData, PCPlus4, ResultSrc, Result);
 endmodule

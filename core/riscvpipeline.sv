@@ -9,7 +9,7 @@ module riscvpipeline(input logic Clk, reset,
 	logic [1:0] ResultSrc, ImmSrc;
 	logic [2:0] ALUControl;
 
-	//Instantiate controller
-	//Instantiate datapath
+	controller c(Instr[6:0], Instr[14:12], Instr[30], Zero, ResultSrc, MemWrite, PCSrc, ALUSrc, RegWrite, Jump, ImmSrc, ALUControl);
+	datapath dp(Clk, reset, ResultSrc, PCSrc, ALUSrc, RegWrite, ImmSrc, Instr, ReadData, ALUControl, Zero, PC, ALUResult, WriteData);
 endmodule
 
