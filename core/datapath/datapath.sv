@@ -21,12 +21,12 @@ module datapath(input logic clk, reset,
 	adder       pcaddbranch(PC, ImmExt, PCTaeget);
 	mux2        pcmux(PCPlus4, PCTarget, PCSrc, PCNext);
 
-	// register file logic
-	regfile rf(clk, RegWrite, Instr[19:15], Instr[24:20], Instr[11:7], Result, SrcA, WriteData);
+	// register file logic レジスタファイルの引数怪しい
+	regfile rf(clk, RegWrite, Instr[19:15], Instr[24:20], Instr[11:7], WriteData, Result, SrcA);
 	extend  ext(Instr[31:7], ImmSrc, ImmExt);
 
 	// ALU logic
 	mux2 #(32) srcbmux(WriteData, ImmExt, ALUSrc, SrcB);
-	alu        alu(SrcA, SrcB, ALUControl, ALUResult, Zero);
+	alu        alu(SrcA, SrcB, ALUControl, Zero, ALUResult);
 	mux3 #(32) resultmux(ALUResult, ReadData, PCPlus4, ResultSrc, Result);
 endmodule
