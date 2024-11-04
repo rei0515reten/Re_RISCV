@@ -1,4 +1,5 @@
-module extend(input logic [31:7] instr,
+//即値を32bitにゼロ拡張する
+module extend(input logic [31:0] instr,
 	input logic [1:0] immsrc,
 	output logic [31:0] immext);
 
@@ -7,6 +8,7 @@ module extend(input logic [31:7] instr,
 		case(immsrc)
 			//I-type
 			2'b00: i = {{20{instr[31]}}, instr[31:20]};
+			//2'b00: i = instr[31:20];
 			//S-type(stores)
 			//2'b01: i = {{20{instr[31]}}, instr[31:25], instr[11:7]};
 			//B-type(branches)

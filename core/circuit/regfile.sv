@@ -1,6 +1,6 @@
 module regfile(input logic clk,
                 input logic write_enable,
-                input logic [5:0]read_reg1,read_reg2,write_reg,
+                input logic [4:0]read_reg1,read_reg2,write_reg,
                 input logic [31:0]write_data,
                 output logic [31:0]read_data1,read_data2);
     
